@@ -26,6 +26,7 @@ dependencies:
 - vector
 - utf8-string
 - text
+- QuickCheck
 
 library:
   source-dirs: src
