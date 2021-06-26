@@ -66,16 +66,13 @@ where
 
 ```Haskell
 > p = price 42.795   -- the value will be rounded to the cent
-p :: Price
 > p
 42.80
-it :: Price          -- internal representation is an Integer
+> -- internal representation is an Integer
 > value p
 4280
-it :: Integer
 > fromPrice p        -- it can be extracted as a Double
 42.8
-it :: Double
 > p `times` 4        -- it can be multiplied by an Integer value
 171.20
 it :: Price
