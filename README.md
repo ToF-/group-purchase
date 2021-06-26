@@ -81,4 +81,20 @@ it :: Double
 it :: Price
 >
 ```
+### OrderItem
 
+```Haskell
+> :set -XOverloadedStrings
+-- here's some csv bytestring:
+> bs = "label,unit price,quantity,buyer\nStaples,0.50,100,Desmond\nPaper,1.78,25,Clara"
+>
+> -- decoding the csv
+> rs = decodeByName bs :: Either String (Header, Vector OrderItem)
+Right (["label","unit price","quantity","buyer"]
+      ,[OrderItem {label = "Staples", unitPrice = 0.50, quantity = 100, buyer = "Desmond"}
+       ,OrderItem {label = "Paper", unitPrice = 1.78, quantity = 25, buyer = "Clara"}])
+>
+> -- getting the buyer and total price of each record
+> (Data.Vector.map (\o -> (buyer o, totalPrice o)) . snd)
+Right [("Desmond",50.00),("Clara",44.50)]
+```
