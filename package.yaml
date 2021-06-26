@@ -21,6 +21,11 @@ description:         Please see the README on GitHub at <https://github.com/ToF-
 
 dependencies:
 - base >= 4.7 && < 5
+- cassava
+- bytestring
+- vector
+- utf8-string
+- text
 
 library:
   source-dirs: src
