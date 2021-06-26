@@ -2,7 +2,7 @@
 module Price
 where
 
-import Data.Fixed 
+import Data.Fixed
 import Data.Csv
 import GHC.Generics
 
