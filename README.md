@@ -1,4 +1,5 @@
 # group-purchase
+## The problem to be solved
 
 Alice, Bertrand, Clara and Desmond often make group purchases. They keep the list of their purchases in a csv file like this one:
 
@@ -34,14 +35,14 @@ Desmond  : 40.00 * 90    / 605.50 =  5.9455
 total                              40.00
 ```
 
-The result is thus
+The result is thus a csv file like this one:
 ```
-Alice    :  39.98
-Bertrand :  19.19
-Clara    : 490.38
-Desmond  :  95.95
-
-total      645.50
+buyer    ,  part
+Alice    ,   39.98
+Bertrand ,   19.19
+Clara    ,  490.38
+Desmond  ,   95.95
+~ total  ,  645.50
 ```
 
 Cascade rounding is being applied:
@@ -60,4 +61,22 @@ where
 - _p(i) = _rrt_ - _rtp(i-1)_
 - _rtp_ = running total of _p_
 
+## Types
+### Price
+We need a specific type for _prices_:
+
+A price can be shown as a fixed precision number
+A price is created from a double value that is rounded with a resolution of 100
+
+let p = price 28.795
+show p = "28.80"
+
+A price can be multiplied by an integral value (so that we can multiply unit price by quantity)
+
+p `times` 4 == Price 115.16
+
+One can extract the floating value from a price (so that we can calculate each buyer's part of the shipping fee)
+
+let p = price 28.79
+fromPrice p == 28.79
 

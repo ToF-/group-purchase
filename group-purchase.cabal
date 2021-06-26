@@ -25,7 +25,7 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      Price
   other-modules:
       Paths_group_purchase
   hs-source-dirs:
@@ -50,6 +50,7 @@ test-suite group-purchase-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      PriceSpec
       Paths_group_purchase
   hs-source-dirs:
       test
@@ -57,4 +58,5 @@ test-suite group-purchase-test
   build-depends:
       base >=4.7 && <5
     , group-purchase
+    , hspec
   default-language: Haskell2010
