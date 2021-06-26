@@ -1,12 +1,12 @@
-module CascadeRoundingSpec
+module CascadeRoundSpec
     where
 
 import Test.Hspec
 import Test.QuickCheck
-import CascadeRounding
+import CascadeRound
 
 spec :: SpecWith ()
 spec = do
-    describe "cascadeRounding" $ do
+    describe "cascadeRound" $ do
         it "the sum of rounded parts is equal to the rounded total" $ property $
-            \ns -> sum (cascadeRounding ns)  `shouldBe` round (sum ns)
+            \ns -> sum (cascadeRound ns)  `shouldBe` round (sum ns)
