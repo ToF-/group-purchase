@@ -63,20 +63,22 @@ where
 
 ## Types
 ### Price
-We need a specific type for _prices_:
 
-A price can be shown as a fixed precision number
-A price is created from a double value that is rounded with a resolution of 100
-
-let p = price 28.795
-show p = "28.80"
-
-A price can be multiplied by an integral value (so that we can multiply unit price by quantity)
-
-p `times` 4 == Price 115.16
-
-One can extract the floating value from a price (so that we can calculate each buyer's part of the shipping fee)
-
-let p = price 28.79
-fromPrice p == 28.79
+```Haskell
+> p = price 42.795   -- the value will be rounded to the cent
+p :: Price
+> p
+42.80
+it :: Price          -- internal representation is an Integer
+> value p
+4280
+it :: Integer
+> fromPrice p        -- it can be extracted as a Double
+42.8
+it :: Double
+> p `times` 4        -- it can be multiplied by an Integer value
+171.20
+it :: Price
+>
+```
 
