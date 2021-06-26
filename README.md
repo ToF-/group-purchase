@@ -60,3 +60,4 @@ where
 - _p(i) = _rrt_ - _rtp(i-1)_
 - _rtp_ = running total of _p_
 
+
