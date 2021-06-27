@@ -23,6 +23,7 @@ spec = do
             BS.writeFile "data/input.csv" bsInput
             groupPurchase "data/input.csv" "data/output.csv"
             bsOutput <- BS.readFile "data/output.csv"
-            BS.lines bsOutput  `shouldBe` []
+            BS.lines bsOutput  `shouldBe`
+                ["buyer,total\r","Alice,39.98\r","Bertrand,19.19\r","Clara,490.38\r","Desmond,95.95\r","~ total,645.50\r"]
 
 
