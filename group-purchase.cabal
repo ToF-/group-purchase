@@ -27,6 +27,7 @@ library
   exposed-modules:
       BillItem
       CascadeRound
+      GroupPurchase
       OrderItem
       Price
   other-modules:
@@ -38,6 +39,7 @@ library
     , base >=4.7 && <5
     , bytestring
     , cassava
+    , filepath
     , text
     , utf8-string
     , vector
@@ -55,6 +57,7 @@ executable group-purchase-exe
     , base >=4.7 && <5
     , bytestring
     , cassava
+    , filepath
     , group-purchase
     , text
     , utf8-string
@@ -67,6 +70,7 @@ test-suite group-purchase-test
   other-modules:
       BillItemSpec
       CascadeRoundSpec
+      GroupPurchaseSpec
       OrderItemSpec
       PriceSpec
       Paths_group_purchase
@@ -78,6 +82,7 @@ test-suite group-purchase-test
     , base >=4.7 && <5
     , bytestring
     , cassava
+    , filepath
     , group-purchase
     , hspec
     , text

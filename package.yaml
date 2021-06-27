@@ -27,6 +27,7 @@ dependencies:
 - utf8-string
 - text
 - QuickCheck
+- filepath
 
 library:
   source-dirs: src

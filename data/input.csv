@@ -1,0 +1,9 @@
+label,unit price,quantity,total,buyer
+pencils           ,  0.50    ,  20    ,10.00, Bertrand
+paper             ,  1.50    ,  25    ,37.50, Alice
+paper             ,  1.80    ,  50    , 90.00 , Desmond
+laundry detergent ,  2.00    ,  10    ,20.00 , Clara
+trash bags        ,  4.30    ,  100   ,430.00 , Clara
+gift cards        ,  8.00    ,  1     ,8.00 ,Bertrand
+lightbulbs        ,  1.00    ,  10    ,10.00 , Clara
+~ shipping        , 40.00    ,  1     ,40.00 , ~ shipping
