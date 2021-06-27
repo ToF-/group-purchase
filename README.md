@@ -118,3 +118,17 @@ Right [("Desmond",50.00),("Clara",44.50)]
 > map ((/100).fromIntegral) $ cascadeRound ns
 [39.98,19.19,490.38,95.95]
 ```
+
+### BillItem
+
+
+```Haskell
+> :set -XOverloadedStrings
+> os=[OrderItem "staples" (price 0.50) 100 "Clara", OrderItem "paper" (price 1.75) 50 "Clara", OrderItem "pencils" (price 0.25) 100 "Clara"]
+> bi = billItem os
+> bi
+BillItem {buyer = "Clara", total = 162.50}
+> encodeByName billItemsHeader [bi]
+"buyer,total\r\nClara,162.50\r\n"
+it :: Data.ByteString.Lazy.Internal.ByteString
+```
