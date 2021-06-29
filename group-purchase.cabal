@@ -24,6 +24,8 @@ source-repository head
   location: https://github.com/ToF-/group-purchase
 
 library
+  exposed-modules:
+      GroupPurchase
   other-modules:
       Paths_group_purchase
   hs-source-dirs:
