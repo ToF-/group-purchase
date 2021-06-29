@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       GroupPurchase
+      Order
   other-modules:
       Paths_group_purchase
   hs-source-dirs:
@@ -64,6 +65,7 @@ test-suite group-purchase-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      OrderSpec
       Paths_group_purchase
   hs-source-dirs:
       test
