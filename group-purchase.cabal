@@ -24,12 +24,6 @@ source-repository head
   location: https://github.com/ToF-/group-purchase
 
 library
-  exposed-modules:
-      BillItem
-      CascadeRound
-      GroupPurchase
-      OrderItem
-      Price
   other-modules:
       Paths_group_purchase
   hs-source-dirs:
@@ -68,11 +62,6 @@ test-suite group-purchase-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      BillItemSpec
-      CascadeRoundSpec
-      GroupPurchaseSpec
-      OrderItemSpec
-      PriceSpec
       Paths_group_purchase
   hs-source-dirs:
       test
