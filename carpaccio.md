@@ -14,8 +14,21 @@ process = do
 ## Reading some csv content (orders), printing the values
 ```
 group-purchase-exe <data/input.csv
-Right (["item","unitp","qty","amount","buyer"],[Order {item = "pencils", unitPrice = 0.5, quantity = 20, buyer = "Bertrand"},Order {item = "paper", unitPrice = 1.5, quantity = 25, buyer = "Alice"},Order {item = "paper", unitPrice = 1.8, quantity = 50, buyer = "Desmond"},Order {item = "laundry detergent", unitPrice = 2.0, quantity = 10, buyer = "Clara"},Order {item = "trash bags", unitPrice = 4.3, quantity = 100, buyer = "Clara"},Order {item = "gift cards", unitPrice = 8.0, quantity = 1, buyer = "Bertrand"},Order {item = "lightbulbs", unitPrice = 1.0, quantity = 10, buyer = "Clara"}])
+Right (["item","unitp","qty","amount","buyer"],
+    [Order {item = Item {label = "pencils"} , unitPrice = 0.5, quantity = 20, buyer = "Bertrand"}
+    ,Order {item = Item {label = "paper"}, unitPrice = 1.5, quantity = 25, buyer = "Alice"}
+    ,Order {item = Item {label = "paper"}, unitPrice = 1.8, quantity = 50, buyer = "Desmond"}
+    ,Order {item = Item {label = "laundry detergent"}, unitPrice = 2.0, quantity = 10, buyer = "Clara"}
+    ,Order {item = Item {label = "trash bags"}, unitPrice = 4.3, quantity = 100, buyer = "Clara"}
+    ,Order {item = Item {label = "gift cards"}, unitPrice = 8.0, quantity = 1, buyer = "Bertrand"}
+    ,Order {item = Item {label = "lightbulbs"}, unitPrice = 1.0, quantity = 10, buyer = "Clara"}])
 ```
+
+  - Order
+    - can be read from a csv ByteString
+    - can't be created from a csv record with an item starting with ~
+    - can't be created from a csv record with an empty item
+    - can be created from a csv file where ~ records are filtered out
 
 ## Printing csv content (amounts)
 
