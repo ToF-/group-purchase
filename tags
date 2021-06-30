@@ -1,0 +1,35 @@
+
+Setup.hs,15
+main main1,2
+
+app/Main.hs,37
+module Main Main0,1
+main main4,5
+
+src/Item.hs,166
+data Item Item9,10
+data Item = Item Item9,10
+data Item = Item { label label9,10
+instance FromField FromField Item12,13
+    where parseField parseField13,14
+
+src/GroupPurchase.hs,60
+module GroupPurchaseGroupPurchase0,1
+process process8,9
+
+src/Order.hs,366
+data Order Order11,12
+data Order = Order Order11,12
+data Order = Order { item item11,12
+                   , unitPrice unitPrice12,13
+                   , quantity quantity13,14
+                   , buyer buyer14,15
+instance FromNamedRecord FromNamedRecord Order17,18
+    where parseNamedRecord parseNamedRecord18,19
+decodeOrders decodeOrders23,24
+
+test/Spec.hs,0
+
+test/OrderSpec.hs,48
+module OrderSpecOrderSpec1,2
+spec spec11,12

@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       GroupPurchase
+      Item
       Order
   other-modules:
       Paths_group_purchase
