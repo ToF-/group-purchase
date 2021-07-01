@@ -4,13 +4,14 @@ module Order
 
 import Data.Text
 import Item
+import Amount
 import Data.Csv
 import Data.Vector
 import Data.ByteString.Lazy.Char8 as BS
 
 
 data Order = Order { item :: Item
-                   , unitPrice :: Double
+                   , unitPrice :: Amount
                    , quantity :: Integer
                    , buyer :: Text }
     deriving (Eq, Show)

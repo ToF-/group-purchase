@@ -16,3 +16,6 @@ instance Show Amount
 
 instance ToField Amount
     where toField = pack . show
+
+instance FromField Amount
+    where parseField = fmap amount . parseField

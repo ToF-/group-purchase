@@ -2,12 +2,13 @@
 module OrderSpec
     where
 
-import Test.Hspec
+import Amount
+import Data.ByteString.Lazy.Char8 as BS
+import Data.Csv
+import Data.Vector
 import Item
 import Order
-import Data.ByteString.Lazy.Char8 as BS
-import Data.Vector
-import Data.Csv
+import Test.Hspec
 
 spec :: SpecWith ()
 spec = do
@@ -20,7 +21,7 @@ spec = do
             decodeOrders csv `shouldBe`
                 Right (expectedHeader,
                        fromList [Order { item = Item "pencils"
-                                       , unitPrice = 0.50
+                                       , unitPrice = amount 0.50
                                        , quantity = 20
                                        , buyer = "Bertrand" }])
 
@@ -43,7 +44,7 @@ spec = do
             decodeOrders csv `shouldBe`
                 Right (expectedHeader,
                        fromList [Order { item = Item "pencils"
-                                       , unitPrice = 0.50
+                                       , unitPrice = amount 0.50
                                        , quantity = 20
                                        , buyer = "Bertrand" }])
 
