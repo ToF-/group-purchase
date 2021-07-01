@@ -2,7 +2,7 @@
 module GroupPurchase
     where
 
-import Order
+import Order as O
 import Amount
 import Bill
 import Data.Csv
@@ -20,14 +20,16 @@ process = do
     case result of
         Left msg -> Prelude.putStrLn msg
         Right orders -> do
-            let bills = Prelude.map bill (groupByBuyer orders) 
+            let bills = Prelude.map billFromOrders (groupByBuyer orders)
             BS.putStrLn $ encodeBills bills
 
+groupPurchase :: [Order] -> [Bill]
+groupPurchase orders = Prelude.map billFromOrders (groupByBuyer orders)
 
 groupByBuyer :: [Order] -> [[Order]]
-groupByBuyer = L.groupBy ((==) `on` Order.buyer) . sortBy (comparing Order.buyer)
+groupByBuyer = L.groupBy ((==) `on` O.buyer) . sortBy (comparing O.buyer)
 
-bill :: [Order] -> Bill
-bill [] = error "empty Order group"
-bill os = Bill { buyer = Order.buyer (L.head os), amount = L.sum (L.map totalPrice os) }
+billFromOrders :: [Order] -> Bill
+billFromOrders [] = error "empty Order group"
+billFromOrders os = bill (O.buyer (L.head os)) (L.sum (L.map (fromAmount . totalPrice) os))
 

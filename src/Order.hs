@@ -17,6 +17,12 @@ data Order = Order { item :: Item
                    , buyer :: Text }
     deriving (Eq, Show)
 
+order :: Text -> Double -> Integer -> Text -> Order
+order i u q b = Order { item = Item i
+                      , unitPrice = amount u
+                      , quantity = q
+                      , buyer = b }
+
 totalPrice :: Order -> Amount
 totalPrice Order { .. } = unitPrice * (amount (fromIntegral quantity))
 

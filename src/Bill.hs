@@ -3,7 +3,7 @@
 module Bill
     where
 
-import Amount
+import Amount as A
 import Data.Csv
 import Data.Text
 import Data.Vector
@@ -12,6 +12,9 @@ import Data.ByteString.Lazy.Char8 as BS
 data Bill = Bill { buyer :: Text
                  , amount :: Amount }
     deriving (Eq, Show)
+
+bill :: Text -> Double -> Bill
+bill t a = Bill t (A.amount a)
 
 billHeader :: Header
 billHeader = fromList ["buyer","amount"]

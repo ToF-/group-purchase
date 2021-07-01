@@ -70,6 +70,7 @@ test-suite group-purchase-test
   other-modules:
       AmountSpec
       BillSpec
+      GroupPurchaseSpec
       OrderSpec
       Paths_group_purchase
   hs-source-dirs:

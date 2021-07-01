@@ -13,8 +13,8 @@ spec :: SpecWith ()
 spec = do
     describe "Bill" $ do
         it "can be written into a csv" $ do
-            let ls = [Bill "Bertrand" (Amount 4217)
-                     ,Bill "Clara" (Amount 40399)]
+            let ls = [bill "Bertrand" 42.17
+                     ,bill "Clara" 403.99]
 
             encodeBills ls `shouldBe`
                 "buyer,amount\r\nBertrand,42.17\r\nClara,403.99\r\n"

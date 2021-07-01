@@ -49,9 +49,6 @@ spec = do
                                        , buyer = "Bertrand" }])
 
         it "has a total price" $ do
-            let order = Order { item = Item "staples"
-                              , unitPrice = amount 0.50
-                              , quantity = 20
-                              , buyer = "Bertrand" }
-            totalPrice order `shouldBe` amount 10.0 
+            let o = order "staples" 0.50 20 "Bertrand"
+            totalPrice o `shouldBe` amount 10.0
 
