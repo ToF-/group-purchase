@@ -48,3 +48,10 @@ spec = do
                                        , quantity = 20
                                        , buyer = "Bertrand" }])
 
+        it "has a total price" $ do
+            let order = Order { item = Item "staples"
+                              , unitPrice = amount 0.50
+                              , quantity = 20
+                              , buyer = "Bertrand" }
+            totalPrice order `shouldBe` amount 10.0 
+

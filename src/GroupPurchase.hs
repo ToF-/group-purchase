@@ -2,6 +2,7 @@ module GroupPurchase
     where
 
 import Order
+import Bill
 import Data.Csv
 import Data.ByteString.Lazy.Char8 as BS
 import Data.Vector
@@ -10,4 +11,9 @@ process :: IO ()
 process = do
     content <- BS.lines <$> BS.getContents
     let csv = BS.unlines (Prelude.filter (\s -> BS.head s /= '~') content)
-    print $  (decodeByName csv :: Either String (Header,Vector Order))
+        result  = toList <$> snd <$> decodeOrders csv
+    case result of
+        Left msg -> Prelude.putStrLn msg
+        Right orders -> do
+            let bills = Prelude.map (\o -> Bill (Order.buyer o) (Order.unitPrice o)) orders
+            BS.putStrLn $ encodeBills bills

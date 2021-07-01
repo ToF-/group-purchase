@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-} 
 module Order
     where
 
@@ -15,6 +16,9 @@ data Order = Order { item :: Item
                    , quantity :: Integer
                    , buyer :: Text }
     deriving (Eq, Show)
+
+totalPrice :: Order -> Amount
+totalPrice Order { .. } = unitPrice * (amount (fromIntegral quantity))
 
 instance FromNamedRecord Order
     where parseNamedRecord r = Order <$> (r .: "item")
