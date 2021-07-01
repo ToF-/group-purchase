@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE RecordWildCards   #-}
 module Bill
     where
 
@@ -19,7 +19,7 @@ billHeader = fromList ["buyer","amount"]
 instance ToNamedRecord Bill
     where
         toNamedRecord Bill { .. } =
-            namedRecord ["buyer"  .= buyer
+            namedRecord ["buyer"  .= buyer 
                         ,"amount" .= amount]
 
 encodeBills :: [Bill] -> ByteString

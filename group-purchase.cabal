@@ -68,6 +68,7 @@ test-suite group-purchase-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      AmountSpec
       BillSpec
       OrderSpec
       Paths_group_purchase
