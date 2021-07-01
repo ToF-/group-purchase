@@ -16,6 +16,9 @@ amount d = Amount { value = round (d*100) }
 fromAmount :: Amount -> Double
 fromAmount Amount { .. } = (fromIntegral value) / 100
 
+times :: Integral a => Amount -> a -> Amount
+(Amount v) `times` n = Amount (v * toInteger n)
+
 instance Show Amount
     where show a = show (MkFixed (value a) :: Centi)
 

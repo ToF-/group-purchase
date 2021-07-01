@@ -16,5 +16,9 @@ spec = do
         it "can be extracted as a double" $ do
             fromAmount (amount 48.07) `shouldBe` 48.07
 
-        it "can be multiplied" $ do
+        it "can be multiplied by another amount" $ do
             (amount 48.07) * (amount 42.17) `shouldBe` amount 2027.11
+
+
+        it "can be multiplied by an integer" $ do
+            (amount 48.07) `times` 3 `shouldBe` amount 144.21

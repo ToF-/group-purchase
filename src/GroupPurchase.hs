@@ -1,3 +1,4 @@
+{-# LANGUAGE RecordWildCards #-}
 module GroupPurchase
     where
 
@@ -16,6 +17,6 @@ process = do
     case result of
         Left msg -> Prelude.putStrLn msg
         Right orders -> do
-            let bills = Prelude.map (\o -> Bill { Bill.buyer = Order.buyer o,
-                                                  Bill.amount = (Amount.amount (fromIntegral (Order.quantity o))) * Order.unitPrice o }) orders
+            let bills = Prelude.map (\Order { .. } ->
+                    Bill { buyer = buyer,  amount = unitPrice `times` quantity }) orders
             BS.putStrLn $ encodeBills bills
