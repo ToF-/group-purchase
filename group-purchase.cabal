@@ -27,6 +27,7 @@ library
   exposed-modules:
       Amount
       Bill
+      CascadeRound
       GroupPurchase
       Item
       Order
@@ -70,6 +71,7 @@ test-suite group-purchase-test
   other-modules:
       AmountSpec
       BillSpec
+      CascadeRoundSpec
       GroupPurchaseSpec
       OrderSpec
       Paths_group_purchase

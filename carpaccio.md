@@ -54,3 +54,5 @@ Bertrand,18.00
 Clara,460.00
 Desmond,90.00
 ```
+
+## Distributing the shipping fee
