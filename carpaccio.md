@@ -33,4 +33,13 @@ Right (["item","unitp","qty","amount","buyer"],
 ## Printing csv content (amounts)
 
 ```
+group-purchase-exe <data/input.csv
+buyer,amount
+Bertrand,10.00
+Alice,37.50
+Desmond,90.00
+Clara,20.00
+Clara,430.00
+Bertrand,8.00
+Clara,10.00
 ```
