@@ -54,5 +54,18 @@ Bertrand,18.00
 Clara,460.00
 Desmond,90.00
 ```
+(total is 605.50)
 
 ## Distributing the shipping fee
+
+```
+group-purchase-exe <data/input.csv
+buyer,amount
+Alice,39.98
+Bertrand,19.19
+Clara,490.38
+Desmond,95.95
+```
+(total without shipping is 605.50)
+(shipping fee is            40.00)
+(total with shipping is    645.50)

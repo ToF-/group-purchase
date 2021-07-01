@@ -3,6 +3,7 @@ module GroupPurchase
     where
 
 import Order as O
+import Total as T
 import Amount as A
 import Bill as B
 import Data.Csv
@@ -16,19 +17,25 @@ import CascadeRound
 process :: IO ()
 process = do
     content <- BS.lines <$> BS.getContents
-    let csv = BS.unlines (Prelude.filter (\s -> BS.head s /= '~') content)
-        result  = toList <$> snd <$> decodeOrders csv
-    case result of
+    let (csvOrders,csvTotals) = L.partition (\s -> BS.head s /= '~') content
+        decodedOrders  = toList <$> snd <$> decodeOrders (BS.unlines csvOrders)
+        decodedTotals  = toList <$> decodeTotals (BS.unlines csvTotals)
+
+    case decodedOrders of
         Left msg -> Prelude.putStrLn msg
         Right orders -> do
-            let bills = Prelude.map billFromOrders (groupByBuyer orders)
-            BS.putStrLn $ encodeBills bills
+            case decodedTotals of
+              Left msg -> Prelude.putStrLn msg
+              Right totals -> do
+                let shipping = fromAmount $ T.amount $ L.head $  totals
+                    bills = groupPurchaseWithShipping orders shipping
+                BS.putStrLn $ encodeBills bills
 
 groupPurchase :: [Order] -> [Bill]
 groupPurchase orders = Prelude.map billFromOrders (groupByBuyer orders)
 
 groupPurchaseWithShipping :: [Order] -> Double -> [Bill]
-groupPurchaseWithShipping orders shipping = L.zipWith (\b m -> b { B.amount = (A.amount m) }) bills adjustedAmounts
+groupPurchaseWithShipping orders shipping = L.zipWith B.setAmount bills adjustedAmounts
     where
         bills = groupPurchase orders
         adjustedAmounts = roundedAmounts amountsWithShipping

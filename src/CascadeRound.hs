@@ -8,8 +8,8 @@ cascadeRound = extract . foldl run (0.0, [], 0)
         extract (_, ns, _) = reverse ns
 
         run :: (Double, [Integer], Integer) -> Double -> (Double, [Integer], Integer)
-        run (drt, ns, rrt) d = (drt', n:ns, rrt')
+        run (doubleRunningTotal, results, roundedRunningTotal) double = (doubleRunningTotal', int:results, roundedRunningTotal')
             where
-            drt' = drt + d
-            rrt' = round drt'
-            n = rrt' - rrt
+            doubleRunningTotal' = doubleRunningTotal + double
+            roundedRunningTotal' = round doubleRunningTotal'
+            int = roundedRunningTotal' - roundedRunningTotal

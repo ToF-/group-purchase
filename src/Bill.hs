@@ -16,6 +16,9 @@ data Bill = Bill { buyer :: Text
 bill :: Text -> Double -> Bill
 bill t a = Bill t (A.amount a)
 
+setAmount :: Bill -> Double -> Bill
+setAmount b d = b { Bill.amount = A.amount d }
+
 billHeader :: Header
 billHeader = fromList ["buyer","amount"]
 
