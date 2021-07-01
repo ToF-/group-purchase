@@ -43,3 +43,14 @@ Clara,430.00
 Bertrand,8.00
 Clara,10.00
 ```
+
+## Group amount per buyer
+
+```
+group-purchase-exe <data/input.csv
+buyer,amount
+Alice,37.50
+Bertrand,18.00
+Clara,460.00
+Desmond,90.00
+```

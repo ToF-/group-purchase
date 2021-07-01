@@ -29,4 +29,10 @@ instance FromField Amount
     where parseField = fmap amount . parseField
 
 instance Num Amount
-    where a * b = amount (fromAmount a * fromAmount b)
+    where 
+    a * b = amount (fromAmount a * fromAmount b)
+
+    fromInteger n = Amount n
+
+    a + b = amount (fromAmount a + fromAmount b)
+
