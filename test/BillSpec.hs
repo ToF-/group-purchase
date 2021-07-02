@@ -20,3 +20,12 @@ spec = do
                          ,order "paper"   7.0 3 "Bertrand"
                          ,order "pencil"  0.25 4 "Bertrand"]
             fromOrders orders `shouldBe` bill "Bertrand" 27.0
+
+    describe "Bills" $ do
+        it "can be collected from a list of orders" $ do
+            let orders = [order "staples" 0.5 10 "Bertrand"
+                         ,order "paper"   7.0 3 "Bertrand"
+                         ,order "pencil"  0.25 4 "Clara"]
+            billsFromOrders orders `shouldBe` [bill "Bertrand" 26.0, bill "Clara" 1.0]
+
+
