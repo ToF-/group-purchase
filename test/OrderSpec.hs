@@ -16,3 +16,6 @@ spec = do
             quantity o `shouldBe` 10
             buyer o `shouldBe` "Bertrand"
 
+        it "can tell its total price" $ do
+            let o = order "staples" 0.50 10 "Bertrand"
+            totalPrice o `shouldBe` money 5.0
