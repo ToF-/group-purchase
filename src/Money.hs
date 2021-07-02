@@ -19,3 +19,5 @@ money = Money . round . (* 100)
 times :: Integer -> Money -> Money
 times n m = m * (money (fromIntegral n))
 
+asDouble :: Money -> Double
+asDouble = (/100) . fromIntegral . value

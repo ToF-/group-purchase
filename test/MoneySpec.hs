@@ -13,3 +13,6 @@ spec = do
 
         it "shows as fixed decimals number" $ do
             show (money 48.00) `shouldBe` "48.00"
+
+        it "can be extracted as a double" $ do
+            asDouble (money 48.07) `shouldBe` 48.07
