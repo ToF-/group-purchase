@@ -8,6 +8,7 @@ data Money = Money { value :: Integer }
 
 instance Num Money where
     m * n = Money ((value m) * (value n) `div` 100)
+    m + n = Money ((value m) + (value n))
 
 instance Show Money where
     show (Money value) = show (MkFixed value :: Centi)
