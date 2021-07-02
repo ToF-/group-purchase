@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       Bill
+      CascadeRound
       GroupPurchase
       Money
       Order
@@ -68,6 +69,7 @@ test-suite group-purchase-test
   main-is: Spec.hs
   other-modules:
       BillSpec
+      CascadeRoundSpec
       GroupPurchaseSpec
       MoneySpec
       OrderSpec

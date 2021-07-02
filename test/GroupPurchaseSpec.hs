@@ -10,7 +10,7 @@ import Test.Hspec
 spec :: SpecWith ()
 spec = do
     describe "GroupPurchase" $ do
-        it "applies a shipping fee proportionally to each buyer's amont" $ do
+        it "applies a shipping fee proportionally to each buyer's amount" $ do
             let bills = [bill "Bertrand" 10.0
                         ,bill "Clara" 70.0
                         ,bill "Desmond" 20.0]
@@ -18,3 +18,6 @@ spec = do
                 [bill "Bertrand" 11.0
                 ,bill "Clara" 77.0
                 ,bill "Desmond" 22.0]
+
+        -- it "adjusts amounts so that the sum of amounts equals the total" $ do
+
