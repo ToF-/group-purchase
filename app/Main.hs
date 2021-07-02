@@ -1,6 +1,4 @@
 module Main where
 
-import GroupPurchase
-
 main :: IO ()
-main = process
+main = undefined
