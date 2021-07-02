@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       Bill
+      GroupPurchase
       Money
       Order
   other-modules:
@@ -67,6 +68,7 @@ test-suite group-purchase-test
   main-is: Spec.hs
   other-modules:
       BillSpec
+      GroupPurchaseSpec
       MoneySpec
       OrderSpec
       Paths_group_purchase
